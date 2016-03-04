@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+echo "Error: no test specified"
+exit 1
