@@ -1,0 +1,36 @@
+{
+	"name"            : "ViennaMap",
+	"version"         : "1.0.0",
+	"description"     : "Application that maps where to find the best breakfast, coffee, lunch or drinks and party",
+	"private"         : true,
+	"author"          : "Franz Josef Kaiser",
+	"license"         : "private",
+	"homepage"        : "https://github.com/vievie/map",
+	"main"            : "index.js",
+	"analyze"         : true,
+	"repository"      : {
+		"type" : "git",
+		"url"  : "https://github.com/vievie/map.git"
+	},
+	"bugs"            : {
+		"url" : "https://github.com/vievie/map/issues"
+	},
+	"engines"         : {
+		"node" : ">=4"
+	},
+	"scripts"         : {
+		"test"  : "sh scripts/test",
+		"build" : "sh scripts/build"
+	},
+	"config"          : { },
+	"devDependencies" : {
+		"gulp"             : "^3.9.1",
+		"gulp-cli"         : "^1.2.1",
+		"gulp-rename"      : "^1.2.2",
+		"gulp-replace"     : "^0.5.4",
+		"jshint"           : "^2.9.1",
+		"jshint-stylish"   : "^2.1.0",
+		"normalize.css"    : "^3.0.3",
+		"travis-after-all" : "^1.4.4"
+	}
+}

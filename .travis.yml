@@ -1,0 +1,30 @@
+# Travis CI - Tests and automated updates for distribution files
+
+after_success:
+    - |
+
+        $(npm bin)/commit-changes --branch "master" \
+                                  --commands "npm run build" \
+                                  --commit-message "dist(gh) Add new build [skip ci]"
+
+        $(npm bin)/update-branch --commands "npm run build" \
+                                 --commit-message "dist(gh) Add new build [skip ci]" \
+                                 --directory "dist"
+                                 --distribution-branch "gh-pages"
+                                 --source-branch "master"
+
+env:
+  global:
+    - secure: "hdfr6CgFNI89QF/cEpkQdgDngtiLVgjAYpoeMgsylKntfoVNakXGv10CVtU4F41p/6YoQ7iGbdGfVjFAHVs9wYLrF5nz0WU2DoLts/gGlmLYdm24CE2Std+uIgGL1FA6dlKTL/bk7hxJ1lO3mdlOKji+yMIkzTDEiGKaomsG6edgpkCOMQ4iFw9TGlCe7j+IthfzxL8kiSxuIDGzUmfFU/UqwONkRFPZ+8DXnBz0JKWWKZOHNM6XOPZm1T0j9XLhoMHn92EHqzEKVnWWxDliri/YdlOujzcm0hTdNvmupr7WAbz/QgyKXtLE5qoK+q/joH2kAqoANsp9wgAd5a5zjvx6LZt3tBi21aVDD0mfb4gvYkzMmw8ERNmB6YJZUOj6NMtuwcwL+24P4u86ZkcDX79msR+MLuVw8kj9zwx9iQdwq5hy/oun81CFag6zaml+cMHrI8pwEU+vx0H51BCESSq+g4jqSyLgyLFEsiNMIq8Isyv2DNu0GgK5QkqXBTgP9gYbHQasuao/RGsk7+7va0FjZJnZLRMPKFP7is7wQQPFoY/yHfB0v19DyUuOXsGskWFiMO7EmU0McZ19eYoRQFNMkFGPOPwvV0wPSxfh7i2XMsIZDhLWFqT24F978w8YJrB/NqBaa4k9fjr3//lLzpXkiRzMqlanyuFXlpZHaqE="
+
+
+git:
+  depth: 10
+
+language: node_js
+
+node_js:
+  - "4"
+  - "5"
+
+sudo: false
