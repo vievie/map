@@ -1,0 +1,13 @@
+{
+	"config" : "./config",
+	"node"   : "./node_modules",
+	"dev"    : {
+		"root"   : "./dev",
+		"assets" : "./dev/assets",
+		"jsx"    : "./dev/assets/jsx"
+	},
+	"deploy" : {
+		"root"   : "./deploy",
+		"assets" : "./deploy/assets"
+	}
+}

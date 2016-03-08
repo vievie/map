@@ -1,0 +1,38 @@
+version: "2"
+
+services:
+    nodejs:
+        container_name: nodejs
+        build:
+            context: ./server/Docker/Nodejs
+            args:
+                APP: "/usr/src/app"
+#                SERVER: "/usr/src/server"
+        ports:
+            - "80:3000"
+        expose:
+            - "3000"
+        depends_on:
+            - app
+        volumes_from:
+            - app
+        command: [ "npm", "start" ]
+        restart: on-failure:3
+        tty: true
+        networks:
+            - front
+
+    app:
+        container_name: nodeapp
+        build:
+            context: ./server/Docker/Volume
+        volumes:
+            - ./:/usr/src/app
+        restart: on-failure:3
+        tty: true
+        networks:
+            - front
+
+networks:
+    front:
+        driver: bridge

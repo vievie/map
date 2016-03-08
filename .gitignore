@@ -1,3 +1,10 @@
 /.idea
+
 /node_modules
+npm-debug.log
+
+# Open PR about `/etc` ghost folders
+# @link https://github.com/npm/npm/pull/7249
+/etc
+
 /h5bp/*
